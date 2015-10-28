@@ -50,11 +50,10 @@ class CompleteMe
     else
       suggestions << suggest(string2, node.branches[char1])
     end
-    #suggestions.flatten! temp fix
-    suggestions = suggestions.map do | word |
-      word = node.data.to_s.concat(word)
+    suggestions.flatten!
+    suggestions.map! do | word |
+      word.prepend(node.data)
     end
       return suggestions
   end
-
 end

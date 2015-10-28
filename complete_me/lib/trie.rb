@@ -6,7 +6,7 @@ class Trie
   attr_accessor :head, :location
 
   def initialize
-    @head = Node.new(nil)
+    @head = Node.new("")
   end
 
   def insert(word)
@@ -32,7 +32,7 @@ class Trie
   def count(node=@head)
     count = 0
     node.branches.each do | k , v |
-      count = count + count(v)
+      count = count +count(v)
     end
     node.is_word ? count +=1 : count
   end

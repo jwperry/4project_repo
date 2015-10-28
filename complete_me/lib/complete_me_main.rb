@@ -8,14 +8,8 @@ dictionary = File.read("/usr/share/dict/words")
 x = CompleteMe.new
 
 
-#x.populate(dictionary)
-
-
-x.insert("a")
-x.insert("an")
-x.insert("and")
-x.insert("andy")
+x.populate(dictionary)
 
 puts x.count
 
-puts x.suggest("a")
+puts x.suggest("aard")
