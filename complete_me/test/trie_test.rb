@@ -1,9 +1,9 @@
 gem 'minitest', '~> 5.2'
 require 'minitest/autorun'
-require './lib/node'
-require './lib/complete_me'
-require './lib/trie'
 require 'pry'
+require_relative '../complete_me/lib/node'
+require_relative '../complete_me/lib/complete_me'
+require_relative '../complete_me/lib/trie'
 
 class TrieTest < Minitest::Test
 

@@ -1,6 +1,6 @@
 require 'pry'
-require './lib/complete_me'
-require './lib/node'
+require_relative "complete_me"
+require_relative "node"
 
 class Trie
   attr_accessor :head, :location
