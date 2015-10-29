@@ -60,4 +60,17 @@ class CompleteMeTest < Minitest::Test
     assert_equal ["and", "andy", "an"], @complete.suggest("a")
   end
 
+  def test_that_slice_if_not_empty_separates_string_correctly
+    assert_equal ["s", "tring"], @complete.slice_if_not_empty("string")
+  end
+
+  def test_that_slice_if_not_empty_returns_empty_strings_if_input_empty
+    assert_equal ["", ""], @complete.slice_if_not_empty("")
+  end
+
+  def test_that_update_suggestions_correctly_flattens_and_maps
+    suggestions = ["a", "b"], ["c", "d"]
+    assert_equal ["za", "zb", "zc", "zd"], @complete.update_suggestions(suggestions, Node.new("z"))
+  end
+
 end

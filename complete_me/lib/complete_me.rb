@@ -6,7 +6,6 @@ class CompleteMe
 
   def initialize
     @trie = Trie.new
-    @nav_location
   end
 
   def trie
@@ -55,16 +54,16 @@ class CompleteMe
   end
 
   def nav_to_word(word)
-    @nav_location = head
+    nav_location = head
     word.downcase.chomp.each_char do | c |
-      if @nav_location.branches.has_key?(c)
-        @nav_location = @nav_location.branches[c]
+      if nav_location.branches.has_key?(c)
+        nav_location = nav_location.branches[c]
       else
         puts "Selected word is not in the dictionary!"
         return nil
       end
     end
-    @nav_location
+    nav_location
   end
 
   def get_suggestions(input, node)
