@@ -3,24 +3,24 @@ require_relative "complete_me"
 require_relative "node"
 
 class Trie
-  attr_accessor :head, :location
+  attr_accessor :head
 
   def initialize
     @head = Node.new("")
   end
 
   def insert(word)
-    @location = @head
+    location = @head
     word.downcase.chomp.each_char do | c |
-      if @location.branches.has_key?(c)
-        @location = @location.branches[c]
+      if location.branches.has_key?(c)
+        location = location.branches[c]
       else
         hash_entry = { c => Node.new(c) }
-        @location.branches.merge!(hash_entry)
-        @location = @location.branches[c]
+        location.branches.merge!(hash_entry)
+        location = location.branches[c]
       end
     end
-    @location.mark_as_word
+    location.mark_as_word
   end
 
   def populate(words)

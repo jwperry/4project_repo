@@ -7,8 +7,6 @@ dictionary = File.read("/usr/share/dict/words")
 
 x = CompleteMe.new
 
-puts dictionary[0..100]
-
 x.populate(dictionary)
 
 puts x.count
