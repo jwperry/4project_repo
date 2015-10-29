@@ -30,10 +30,11 @@ class Trie
   end
 
   def count(node=@head)
-    count = 0
+    counter = 0
     node.branches.each do | k , v |
-      count = count +count(v)
+      counter = counter +count(v)
     end
-    node.is_word ? count +=1 : count
+    node.is_word ? counter +=1 : counter
   end
+
 end

@@ -3,13 +3,14 @@ require_relative 'node'
 require_relative 'complete_me'
 require_relative 'trie'
 
+complete_me = CompleteMe.new
+
 dictionary = File.read("/usr/share/dict/words")
 
-x = CompleteMe.new
+complete_me.populate(dictionary)
 
-x.populate(dictionary)
+address_data = complete_me.read_addresses
+address_data.slice!(0..13)
+complete_me.populate(address_data)
 
-puts x.count
-
-x.select("aard", "aardwolf")
-puts x.suggest("aard")
+puts complete_me.suggest("1956 lawrence st unit 5")

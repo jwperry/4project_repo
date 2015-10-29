@@ -100,4 +100,14 @@ class CompleteMe
     end
     return first_char, input_remainder
   end
+
+  def read_addresses
+    addresses = ""
+    address_file = ARGV[0]
+    File.readlines(address_file).each do | line |
+      addresses << line.split(",").last
+    end
+    addresses
+  end
+  
 end
